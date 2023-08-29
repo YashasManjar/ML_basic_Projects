@@ -1,0 +1,64 @@
+1) Image Pre-Processing:
+
+import os
+import numpy as np
+from PIL import Image
+import matplotlib.pyplot as plt
+
+---------------
+
+image_path = '../Lenovo/Desktop/Preprocessing/image.jpg'  # Replace with the actual path to your image file
+image = Image.open(image_path)
+
+# Display the original image
+plt.imshow(image)
+plt.axis('off')
+plt.show()
+
+---------------
+
+target_size = (256, 256)  # Replace with the desired target size
+resized_image = image.resize(target_size)
+
+# Display the resized image
+plt.imshow(resized_image)
+plt.axis('off')
+plt.show()
+
+-----------------
+
+grayscale_image = image.convert('L')
+
+# Display the grayscale image
+plt.imshow(grayscale_image, cmap='gray')
+plt.axis('off')
+plt.show()
+
+-------------------
+
+# Rotation
+rotated_image = image.rotate(45)  # Replace 45 with the desired angle
+plt.imshow(rotated_image)
+
+---------------------
+
+# Horizontal flip
+flipped_image = image.transpose(Image.FLIP_LEFT_RIGHT)
+plt.imshow(flipped_image)
+
+-------------------------
+
+# Vertical flip
+vertical_flipped_image = image.transpose(Image.FLIP_TOP_BOTTOM)
+plt.imshow(vertical_flipped_image)
+
+------------------------
+
+IMPORTING IMAGE FROM WEB
+
+from skimage import io
+import matplotlib.pyplot as plt
+url='https://static.scientificamerican.com/sciam/cache/file/7A715AD8-449D-4B5A-ABA2C5D92D9B5A21_source.png'
+image=io.imread(url)
+plt.imshow(image)
+plt.show()
